@@ -14,7 +14,15 @@ sealed class ChatType : Serializable {
 }
 ```
 
-Furthermore, it contains a `ChatActivity` that receives an `ChatType` by [Activity Intent](https://developer.android.com/training/basics/firstapp/starting-activity) and contains different layout informations for each `ChatType`. At this point the `sealed class` provides an advantage compared to `enum class`, which does not provides parameter constructors, or `abstract class`, which does not have compile time inheritance knowledge and requires an `else` statement in `when` conditions.
+Furthermore, it contains a `ChatActivity` that receives an `ChatType` by [Activity Intent](https://developer.android.com/training/basics/firstapp/starting-activity) and contains different layout informations for each `ChatType`. 
+
+### Advantage 1
+
+At this point the `sealed class` provides an advantage compared to `enum class`, which does not provides parameter constructors, or `abstract class`, which does not have compile time inheritance knowledge and requires an `else` statement in `when` conditions.
+
+### Advantage 2
+
+There are so many scenarios where we must pass so many parameters from one activity to another. Using this `sealed class` implementation, we always need to parametrize only the `ChatType` instance and retrieve other data inside it.
 
 An example of `when` condidition with `sealed class` is shown below:
 
@@ -22,10 +30,10 @@ An example of `when` condidition with `sealed class` is shown below:
 private fun getChatName(): String {
     return when (chatType) {
         is ChatType.Personal -> {
-            getString(R.string.chat_personal_name, (chatType as ChatType.Personal).personName)
+            (chatType as ChatType.Personal).personName
         }
         is ChatType.Group -> {
-            getString(R.string.chat_group_name, (chatType as ChatType.Group).groupName)
+            (chatType as ChatType.Group).groupName
         }
     }
 }
