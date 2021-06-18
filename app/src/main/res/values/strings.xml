@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SealedClassDemo</string>
+    <string name="chat_personal_name">Você está conversando com %1$s</string>
+    <string name="chat_group_name">Bem vindo ao grupo %1$s</string>
+    <string name="chat_personal_status">Status: %1$s</string>
+    <string name="chat_group_description">Descrição: %1$s</string>
+    <string name="chat_group_creation_date">Grupo criado em %1$s</string>
+    <string name="chat_group">Chat em grupo</string>
+    <string name="chat_personal">Chat pessoal</string>
+</resources>
