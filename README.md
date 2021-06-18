@@ -3,7 +3,7 @@
 
 <img src="/media/app.gif" height="700" />
 
-## About the example
+## About the sealed class
 
 The app simulates a chat whit two chat types with independent parameters, **personal chat** and **group chat**, implemented in the following [sealed class](https://kotlinlang.org/docs/sealed-classes.html):
 
@@ -23,6 +23,12 @@ At this point the `sealed class` provides an advantage compared to `enum class`,
 ### Advantage 2
 
 There are so many scenarios where we must pass so many parameters from one activity to another. Using this `sealed class` implementation, we always need to parametrize only the `ChatType` instance and retrieve other data inside it.
+
+### Advantage 3
+
+Using this feature, the project scaling becomes easy: if you want to add some other `ChatType`, just add the `ChatType.OtherType` class and the respective cases in `when` statements along the code. You will not forget it, the code will show a compile error if you do not cover that case ;)
+
+## Using the sealed class
 
 An example of `when` condidition with `sealed class` is shown below:
 
